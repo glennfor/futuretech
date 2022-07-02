@@ -1,8 +1,6 @@
 (function ($) {
     // "use strict";
 
-    
-
     $(window).scroll(function () {
         if ($(this).scrollTop() > 108) {
             $('.sticky-top').css( {
@@ -16,53 +14,39 @@
         }
         
     });
+
+    console.log('maini')
+    $('#export-form').click(
+      function(){
+        console.log('in>>>>>>')
+        html2canvas(document.querySelector('#profile')).then(function(canvas) {
+            console.log('starting...')
+            // only jpeg is supported by jsPDF
+            var imgData = canvas.toDataURL("image/jpeg", 1.0);
+            var pdf = new jsPDF();
+          
+            pdf.addImage(imgData, 'JPEG', 0, 0);
+            pdf.save("download.pdf");
+          console.log('done...')
+      });
+      }
+    )
 })(jQuery);
 
-/*
-
------General----
-->Implement context reduces [title, app name]
-->alerts 
-->emailjs
 
 
----JS----
-->Back to top
-->Carousel
-->Covert nav
-->Rework the landing page
-
-----includes----
-animate.css
-AOS
-JQuery
-Bootstrap
-
------routes-------
-/
-/home    (home page)
-/register (register an account)
-/accounts/login (login)
-/accounts/logout (logout)
-/user/profile (You can view all your info here and also print)
-/admin
-
-login page, logout page, 404 page
-
-*/
-
-(function () {
-    'use strict'
-    const forms = document.querySelectorAll('.requires-validation')
-    Array.from(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-          form.classList.add('was-validated')
-        }, false)
-      })
-    })()
+// (function () {
+//     'use strict'
+//     const forms = document.querySelectorAll('.requires-validation')
+//     Array.from(forms)
+//       .forEach(function (form) {
+//         form.addEventListener('submit', function (event) {
+//           if (!form.checkValidity()) {
+//             event.preventDefault()
+//             event.stopPropagation()
+//           }
+//           form.classList.add('was-validated')
+//         }, false)
+//       })
+//     })()
     

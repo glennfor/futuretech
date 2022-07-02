@@ -21,11 +21,28 @@ body{
 .color-main{
     color: var(--primary) !important;
 }
+
 .bg-main{
     background-color: var(--primary) !important;
 }
 
+.user{
+    position: fixed;
+    display: block;
+    z-index: 5;
+    color: var(--light);
+    bottom: 2rem;
+    left: 2rem;
+    padding: 8px;
+    border-radius: 12px;
+    background-color: var(--primary);
+    border: 2px solid var(--light);
+}
 
+.user span{
+    font-size: 24px;
+    font-weight: 800;
+}
 /****end of utils **/
 
 body{
@@ -33,6 +50,9 @@ body{
     font-size: 20px;
     font-weight: 400;
     background-color: var(--light);
+}
+body main{
+    overflow-x: hidden;
 }
 
 textarea:hover, 
@@ -164,16 +184,23 @@ main{
     width: 50%;
     left: 8rem;
 }
-@media  screen and (max-width: 720px) {
+@media  screen and (max-width: 998px) {
+    .welcome {
+        min-height: 100vh;
+    }
+    .welcome .welcome-text h2{
+        font-weight: 3rem;
+    }
     .welcome .welcome-text{
         width: 100%;
         left: 4px;
+        padding: 8px;
     }
 }
 .welcome .welcome-text h2{
     font-size: 4rem;
     font-weight: 800;
-    font-style: bold;
+    text-align: center;
     font-family: 'Poppins', sans-serif;
     /* text-shadow: 1px 1px 2px #000000; */
     color: var(--light);
@@ -215,8 +242,9 @@ main{
     width: 100%;
     background-color: var(--light);
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    padding: 2rem;
+    padding: 1rem;
     justify-content: space-around;
 }
 
@@ -239,6 +267,7 @@ main{
 }
 .right, .left{
     width: 43%;
+    min-width: 300px;
 }
 .why-us .right {
     border: 8px solid var(--primary);
@@ -335,11 +364,14 @@ main{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fill, 300px); 
+    justify-content: center;
+
 }
 
 .gallery .images .grid-item{
+    min-width: 320px;
+    margin: 15px;
     overflow: hidden;
     position: relative;
 }
@@ -399,7 +431,7 @@ main{
       justify-content: center;
       align-items: center;
       text-align: center;
-      min-height: 100vh;
+      /* min-height: 100vh; */
 }
 
 .form-holder .form-content {
@@ -417,12 +449,14 @@ main{
     padding: 60px;
 }
 
+
+
+
 .form-content .form-items {
     border: 3px solid #fff;
     padding: 40px;
     display: inline-block;
-    width: 100%;
-    min-width: 540px;
+    width: 540px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -490,6 +524,22 @@ main{
    color: #2acc80;
 }
 
+@media screen and (max-width: 700px) {
+    .gen-form{
+        padding: 10px;
+    }
+    .form-holder{
+        width: 100%;
+        padding: 0;
+    }
+    .form-holder .form-content{
+        padding: 10px;
+    }
+    .form-content .form-items{
+        /* padding: 10px; */
+        width: 100%;
+    }
+}
 
 
 /* user profile section */
@@ -519,13 +569,11 @@ main{
 
 #profile{
     display: absolute;
-    /* height: 1098px; */
     width: 800px;
     background-color: #ffffff;
-    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+    /* box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12); */
     padding: 2rem;
     margin: auto;
-    /* border-radius: 20px; */
 }
 
 #profile .top-row{
@@ -559,7 +607,7 @@ main{
     display: block;
     width: 180px;
     min-height: 180px;
-    border: 8px solid var(--dark);
+    border: 8px solid var(--primary);
     border-radius: 100%;
     margin: auto;
 }

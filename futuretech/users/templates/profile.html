@@ -8,14 +8,26 @@
 {% comment %}
     Here it is certain the user is registered and authenticated
 {% endcomment %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js" integrity="sha512-UcDEnmFoMh0dYHu0wGsf5SKB7z7i5j3GuXHCnb3i4s44hfctoLihr896bxM0zL7jGkcHQXXrJsFIL62ehtd6yQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+      integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+      crossorigin="anonymous"
+    >
+</script>
+
 <section class="profile-section">
     <div class="profile-content">
         <div class="info mb-3 mt-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum modi maxime omnis 
-            iusto, non aut numquam quae obcaecati repellendus amet officiis ducimus, tempora, sit eaque.
+            Here is your registration form for the program.
+            Save as PDF and print when needed.
+            <div class="text-center">
+                <button id="export-form" class="linky-button">Save to PDF </button>
+            </div>
         </div>
 
         <div class="profile-container">
+        <div>
         <div class="profile" id="profile">
 
             <div class="top-row">
@@ -29,8 +41,8 @@
                   <div class="col-xl-12">
                     <ul class="list-unstyled float-end text-left text-bold">
                       <li>Chappelle Obili, Yaounde.</li>
-                      <li>(+237) 677 777 777</li>
-                      <li>futuretech@futuretech.com</li>
+                      <li>(+237)650121278</li>
+                      <li>(+237)655627130</li>
                     </ul>
                     </div>
                 </div>
@@ -39,13 +51,13 @@
             <hr height="3px" />
 
             <div class="profile-image">
-                <img src="{% static 'img/gallery/hardware.jpg' %} " alt="User profile Image" />
+                <img src="{% static 'img/gallery/canvas.jpg' %} " alt="User profile Image" />
             </div>
 
             <div class="text-center">
                 <h2 class="color-main"> User Registration Form </h2>
-                <p> This Form can be printed as proof that you registred for the FutureTech 
-                    Program
+                <p> This Form can be printed as proof that you registered for the FutureTech 
+                    Program.
                 </p>
             </div>
 
@@ -69,7 +81,7 @@
                     </p>
         
                     <p class="left">
-                       {{ registereduser.birth_date|date:'a F, Y'}}
+                       {{ registereduser.birth_date|date:'d F, Y'}}
                     </p>
                 </div>
                 <hr />
@@ -79,7 +91,7 @@
                     </p>
         
                     <p class="left">
-                        {{registereduser.gender}}
+                        {{registereduser.get_gender_display}}
                     </p>
                 </div>
                 <hr />
@@ -101,7 +113,7 @@
                     </p>
         
                     <p class="left">
-                        <a href="tel:{{registereduser.phone_number}}" class="color-main">
+                        <a href="tel:{{registereduser.phone_number}}" class="text-dark">
                             {{registereduser.phone_number}}
                         </a>
                     </p>
@@ -112,10 +124,12 @@
                         Courses Registered
                     </p>
         
-                        <ul>
-                            <li> <i class="bi bi-check color-main" > </i> Mobile App development </li>
-                            <li> <i class="bi bi-check color-main" > </i> Computer Networking</li>
-                            <li> <i class="bi bi-check color-main" > </i> Database Administration</li>
+                        <ul class="text-left m-0 p-0 left">
+                            {% if registereduser.get_course_list %}
+                                {% for course in registereduser.get_course_list %}
+                                 <li > <i class="bi bi-check-circle-fill color-main" > </i> {{course}} </li>
+                                {% endfor %}
+                            {% endif %}
                           </ul>
     
                 </div>
@@ -126,7 +140,7 @@
                     </p>
         
                     <p class="left">
-                        <span class="badge bg-warning">FCFA 30,000 </span>
+                        <span class="badge bg-info"> {{registereduser.registration_fee}} </span>
                     </p>
                 </div>
                 <hr />
@@ -136,15 +150,19 @@
                     </p>
         
                     <p class="left">
-                        {% comment %} <span class="badge bg-success"> Completed  <i class="bi bi-check-circle-fill " > </i>  </span> {% endcomment %}
-                        {% comment %} <span class="badge bg-warning"> Pending  <i class="bi bi-arrow-repeat" > </i> </span> {% endcomment %}
-                        <span class="badge bg-danger"> Stalled  <i class="bi bi-exclamation-triangle-fill " > </i> </span>
+                        {% if registereduser.registration_status.null %}
+                            <span class="badge bg-danger"> Stalled  <i class="bi bi-exclamation-triangle-fill " > </i> </span>
+                        {% elif registereduser.registration_status %}
+                            <span class="badge bg-success"> Completed  <i class="bi bi-check-circle-fill " > </i>  </span>
+                        {% else %}
+                            <span class="badge bg-warning"> Pending  <i class="bi bi-arrow-repeat" > </i> </span>
+                        {% endif %}
                     </p>
                 </div>
                 <hr />
 
             </div>
-        
+        </div>
         </div>
     </div>
         

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import RegisteredUser
 # Create your views here.
@@ -11,12 +11,13 @@ def show_profile(request):
     if not request.user.is_authenticated:
         return redirect('/accounts/signup')
     
-    registereduser = RegisteredUser.objects.filter(user = request.user)
+    if not RegisteredUser.objects.filter(user = request.user).exists():
+        return redirect('/register')
+        
+    registereduser = RegisteredUser.objects.get(user = request.user)
 
-    if not registereduser:
-        return redirect(request, '')
-
+    print(registereduser)
     context = {
-        'registereduser':registereduser
+        'registereduser':registereduser,
     }
     return render(request, template, context) 

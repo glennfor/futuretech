@@ -11,8 +11,7 @@
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet" />
+
 
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
 
@@ -41,7 +40,7 @@
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                 <small class="bi bi-phone text-primary me-2"></small>
-                <small>(+237) 677 77 77 77</small>
+                <small>(+237)650121278 / (+237)655627130</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                 <a class="btn btn-sm-square bg-white text-success me-1" href=""
@@ -80,18 +79,17 @@
         >
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse py-4 py-lg-0 bg-white m-0" id="navbarCollapse">
+        <div class="collapse navbar-collapse p-4 py-lg-0 bg-white m-0" id="navbarCollapse">
             <div class="navbar-nav ms-auto ">
             <a href="/home" class="nav-item nav-link active color-main">Home</a>
-            <a href="/about" /class="nav-item nav-link text-dark">About</a>
-            <a href="/contact" class="nav-item nav-link text-dark">Contact</a>
             {% if user.is_authenticated %}
-                <span class="badge bg-success"> {{ user.username }} </span>
-            {% else %}
-            <span class="badge bg-danger"> Anonynmous </span>
+            <a href="/accounts/logout" class="nav-item nav-link active ">Logout</a>
+            {% else %}    
+            <a href="/accounts/signup" class="nav-item nav-link active ">Sign up</a>    
             {% endif %}
+
             </div>
-            
+
             {% if user.is_authenticated %}
                 <a href="/user/profile"
                 class="btn text-light bg-main mary fw-bold animate__animated animate__rubberBand animate__slower"
@@ -110,6 +108,13 @@
     </header>
 
     <main>
+        
+        {% if user.is_authenticated %}
+            <div class="user">
+                <span class="fw-bold"> <i class="bi bi-person-circle text-dark"> </i> Hello, {{ user.username }}. </span>
+            </div>
+        {% endif %}
+        
         {% block content %}
 
         {% endblock content %}
@@ -118,7 +123,7 @@
     <footer class="footer">
         
         <div class="footer-info">
-            <div class="org">
+            <div class="org  text-left">
                 <a href="index.html" class="navbar-brand p-0 logo">
                     <img class="img-fluid me-0" src="{% static 'img/logo.png' %}" alt="Icon" />
                     <h1 class="m-0 color-main d-inline">FutureTech</h1>
@@ -129,19 +134,18 @@
                 </p>
             </div>
 
-            <div class="links">
+            <div class="links text-left">
                 <h4>Useful Links</h4>
                   <ul>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">About</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="/">Home</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="/register">Register</a></li>
                   </ul>
             </div>
 
             <div class="contact">
                 <p>
-                  <strong>Phone:</strong> +1 5589 55488 55<br>
-                  <strong>Email:</strong> info@example.com<br>
+                  <strong>Phone:</strong> (+237)650121278 <br>
+                  <strong>Email:</strong> futuretech@gmail.com<br>
                 </p>
                 <div class="social-links mt-3">
                     <a href="#" class="btn btn-sm-square bg-white text-info me-1" ><i class="bi bi-twitter"></i></a>
@@ -166,12 +170,6 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script src="{% static 'lib/wow/wow.min.js' %}"></script>
-<script src="{% static 'lib/easing/easing.min.js' %}"></script>
-<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
-<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
-<script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
 
 <script src="{% static 'js/main.js' %}"></script>
 

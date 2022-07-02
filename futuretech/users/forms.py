@@ -8,7 +8,7 @@ class RegistrationForm(forms.ModelForm):
         model = RegisteredUser
         fields = ("first_name", "middle_name", "last_name", 
                     "birth_date", "gender", "email",
-                    "email", "course")
+                    "phone_number", "courses")
 
 
 class UserSignUpForm(UserCreationForm):

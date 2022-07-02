@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-vu2l6(s&dhc@no9-+i_6ar_+pvs)0__=htu7nmos^4qcl#1ap$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'core',
     'users'
 ]
