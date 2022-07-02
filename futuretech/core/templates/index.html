@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Welcome To FutureTech - Kick Off!
+{% endblock %}
+
+{% block content %}
+
+<div class="welcome">
+    <img src="{% static 'img/bg.jpg' %}" class="bg" alt="Back Ground">
+    <div class="welcome-text">
+        <h2><i class="bi bi-code"></i> Welcome to FutureTech <i class="bi bi-code-slash"></i></h2>
+        <p>
+            Tech skills are the most in-demand and practical skills today.
+            The ebenefits of immersing yourself in this versatile filed at a young 
+            age is unparalled. <br>
+            FutureTech brings to you the perfect skills and training you need to get started.
+        </p>
+        <div class="links">
+            <a href="/accounts/signup">Sign Up <i class="bi bi-send-check-fill"></i></a> 
+            <a href="/register">Register <i class="bi bi-layers-fill"></i></a>
+        </div>
+    </div>
+</div>
+
+<div class="why-us">
+    <div class="left">
+        <h3>
+            Why should you learn with us?
+        </h3>
+        <p>
+            We are convinced we are the best. But why should you trust us? We have a lot of reasons!
+        </p>
+        <div>
+            <span><i class="bi bi-check-circle color-main"></i> We have the best qualified tutors!</span>
+            <span><i class="bi bi-check-circle color-main"></i> All our students get to create real world projects!</span>
+            <span><i class="bi bi-check-circle color-main"></i> Our students are guaranteed monetizable skills!</span>
+            <span><i class="bi bi-check-circle color-main"></i> We have excellent equipments!</span>
+            <span><i class="bi bi-check-circle color-main"></i> We have experince!</span>
+
+        </div>
+    </div>
+    <div class="right">
+        <img src="{% static 'img/gallery/female-dev-coding.jpg' %}" alt="">
+    </div>
+</div>
+
+<div class="modules">
+    <h3>Learning modules</h3>
+    <p> Here a inexhaustive list of valuable skills you will be gaining </p>
+    <div>
+        <div class="course">
+            <h4>Game Development</h4>
+            <img src="{% static 'img/svg/game-dev.png' %}" alt="">
+            <p>Game Development is a hot trend in the industry today. Start with 2-D games
+                in C and progress to 3-D games and gaain full masteery
+            </p>
+        </div>
+
+        <div class="course">
+            <h4>Web Development</h4>
+            <img src="{% static 'img/svg/web-dev.png' %}" alt="">
+            <p>Game Development is a hot trend in the industry today. Start with 2-D games
+                in C and progress to 3-D games and gaain full masteery
+            </p>
+        </div>
+
+        <div class="course">
+            <h4>Mobile App Dev't</h4>
+            <img src="{% static 'img/svg/app-dev.png' %}" alt="">
+            <p>Game Development is a hot trend in the industry today. Start with 2-D games
+                in C and progress to 3-D games and gaain full masteery
+            </p>
+        </div>
+
+        <div class="course">
+            <h4>Softare Development</h4>
+            <img src="{% static 'img/svg/coding.png' %}" alt="">
+            <p>Game Development is a hot trend in the industry today. Start with 2-D games
+                in C and progress to 3-D games and gaain full masteery
+            </p>
+        </div>
+
+        <div class="course">
+            <h4>Robotics</h4>
+            <img src="{% static 'img/svg/robotics.png' %}" alt="">
+            <p>Game Development is a hot trend in the industry today. Start with 2-D games
+                in C and progress to 3-D games and gaain full masteery
+            </p>
+        </div>
+
+        <div class="course">
+            <h4>Grapics Design</h4>
+            <img src="{% static 'img/svg/graphics-2.png' %}" alt="">
+            <p>Game Development is a hot trend in the industry today. Start with 2-D games
+                in C and progress to 3-D games and gaain full masteery
+            </p>
+        </div>
+
+        <div class="course">
+            <h4>Computer Networking</h4>
+            <img src="{% static 'img/svg/networking.png' %}" alt="">
+            <p>Game Development is a hot trend in the industry today. Start with 2-D games
+                in C and progress to 3-D games and gaain full masteery
+            </p>
+        </div>
+
+        <div class="course">
+            <h4>Microsoft Suite</h4>
+            <img src="{% static 'img/svg/office.png' %}" alt="">
+            <p>Game Development is a hot trend in the industry today. Start with 2-D games
+                in C and progress to 3-D games and gaain full masteery
+            </p>
+        </div>
+
+        <div class="course">
+            <h4>Computer Maintenance</h4>
+            <img src="{% static 'img/svg/maintenace.png' %}" alt="">
+            <p>Game Development is a hot trend in the industry today. Start with 2-D games
+                in C and progress to 3-D games and gaain full masteery
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="gallery">
+    <h3>Gallery</h3>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error odit at possimus dolorem aspernatur suscipit, saepe est! Quaerat autem in quas. Labore rem velit asperiores adipisci, cum nesciunt quasi nobis.</p>
+    <div class="images">
+
+        
+        <div class="grid-item">
+            <img src="{% static 'img/gallery/laptop.jpg' %}" alt="">
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
+        </div>
+        
+        <div class="grid-item">
+            <img src="{% static 'img/gallery/laptop-code.jpg' %}" alt="">
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
+        </div>
+        
+        <div class="grid-item">
+            <img src="{% static 'img/gallery/male-dev-coding.jpg' %}" alt="">
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
+        </div>
+        
+        <div class="grid-item">
+            <img src="{% static 'img/gallery/female-dev-coding.jpg' %}" alt="">
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

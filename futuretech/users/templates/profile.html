@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %}
+ FutureTech - User Profile
+{% endblock %}
+
+{% block content %}
+{% comment %}
+    Here it is certain the user is registered and authenticated
+{% endcomment %}
+<section class="profile-section">
+    <div class="profile-content">
+        <div class="info mb-3 mt-3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum modi maxime omnis 
+            iusto, non aut numquam quae obcaecati repellendus amet officiis ducimus, tempora, sit eaque.
+        </div>
+
+        <div class="profile-container">
+        <div class="profile" id="profile">
+
+            <div class="top-row">
+                
+                <div class="logo ">
+                    <img class="img-fluid me-0" src="{% static 'img/logo.png' %}" alt="Icon" />
+                    <h1 class="m-0 color-main d-inline">FutureTech</h1>
+                </div>
+
+                <div class="row">
+                  <div class="col-xl-12">
+                    <ul class="list-unstyled float-end text-left text-bold">
+                      <li>Chappelle Obili, Yaounde.</li>
+                      <li>(+237) 677 777 777</li>
+                      <li>futuretech@futuretech.com</li>
+                    </ul>
+                    </div>
+                </div>
+        
+            </div>
+            <hr height="3px" />
+
+            <div class="profile-image">
+                <img src="{% static 'img/gallery/hardware.jpg' %} " alt="User profile Image" />
+            </div>
+
+            <div class="text-center">
+                <h2 class="color-main"> User Registration Form </h2>
+                <p> This Form can be printed as proof that you registred for the FutureTech 
+                    Program
+                </p>
+            </div>
+
+            <div class="credentials">
+                <hr />
+                <div class="cred-item">
+                    <p class="right">
+                        Name
+                    </p>
+        
+                    <p class="left">
+                        {% with registereduser.first_name|add:' '|add:registereduser.middle_name|add:' '|add:registereduser.last_name as name %}
+                            {{ name }}
+                        {% endwith %}
+                    </p>
+                </div>
+                <hr />
+                <div class="cred-item">
+                    <p class="right">
+                        Date of Birth
+                    </p>
+        
+                    <p class="left">
+                       {{ registereduser.birth_date|date:'a F, Y'}}
+                    </p>
+                </div>
+                <hr />
+                <div class="cred-item">
+                    <p class="right">
+                        Gender
+                    </p>
+        
+                    <p class="left">
+                        {{registereduser.gender}}
+                    </p>
+                </div>
+                <hr />
+                <div class="cred-item">
+                    <p class="right">
+                        Email
+                    </p>
+        
+                    <p class="left">
+                        <a href="mailto:{{registereduser.email}}" class="color-main">
+                            {{registereduser.email}}
+                        </a>
+                    </p>
+                </div>
+                <hr />
+                <div class="cred-item">
+                    <p class="right">
+                        Phone Number
+                    </p>
+        
+                    <p class="left">
+                        <a href="tel:{{registereduser.phone_number}}" class="color-main">
+                            {{registereduser.phone_number}}
+                        </a>
+                    </p>
+                </div>
+                <hr />
+                <div class="cred-item">
+                    <p class="right">
+                        Courses Registered
+                    </p>
+        
+                        <ul>
+                            <li> <i class="bi bi-check color-main" > </i> Mobile App development </li>
+                            <li> <i class="bi bi-check color-main" > </i> Computer Networking</li>
+                            <li> <i class="bi bi-check color-main" > </i> Database Administration</li>
+                          </ul>
+    
+                </div>
+                <hr />
+                <div class="cred-item">
+                    <p class="right">
+                        Total Registration Fee
+                    </p>
+        
+                    <p class="left">
+                        <span class="badge bg-warning">FCFA 30,000 </span>
+                    </p>
+                </div>
+                <hr />
+                <div class="cred-item">
+                    <p class="right">
+                        <span >Registration Status </span>
+                    </p>
+        
+                    <p class="left">
+                        {% comment %} <span class="badge bg-success"> Completed  <i class="bi bi-check-circle-fill " > </i>  </span> {% endcomment %}
+                        {% comment %} <span class="badge bg-warning"> Pending  <i class="bi bi-arrow-repeat" > </i> </span> {% endcomment %}
+                        <span class="badge bg-danger"> Stalled  <i class="bi bi-exclamation-triangle-fill " > </i> </span>
+                    </p>
+                </div>
+                <hr />
+
+            </div>
+        
+        </div>
+    </div>
+        
+</section>
+{% endblock %}

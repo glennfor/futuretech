@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load  crispy_forms_tags%}
+{%block title %}
+ Welcome to FutureTech - Register
+{% endblock %}
+
+{% block content %}
+
+<div class="gen-form">
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="text-center">
+                            <img  src="{% static 'img/logo.png' %} " alt="logo" />
+                            <h3  class="text-center" >Signup for an account</h3>
+                            <p class="text-center" >Fill in the data below.</p>
+                            </div>
+                        <form class="requires-validation" method="POST"  novalidate>
+                            {% csrf_token %}
+                           <div class="col-md-12">
+                            <input class="form-control" type="text" name="username" placeholder="Username" required>
+                            <div class="text-danger  text-sm">{{userform.username.errors | escape}}</div>
+                         </div> 
+                        
+                         <div class="col-md-12 mb-3">
+                            <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
+                             <div class="text-danger  text-sm" >{{userform.errors.email | escape}}</div>
+                        </div>
+
+                           <div class="col-md-12 mb-3">
+                              <input class="form-control" type="password" name="password1" placeholder="Password" required>
+                               <div class="text-danger text-sm"> {{userform.errors.password1}} </div>
+                           </div>
+
+                           <div class="col-md-12">
+                            <input class="form-control" type="password" name="password2" placeholder="Confirm Password" required>
+                             <div class="text-danger text-sm"> {{userform.errors.password2}} </div>
+                         </div>
+
+                         <div class="col-md-12 mt-3">
+                            <p class="text-center">
+                             Alreday have an account? Log in <a href="/accounts/login" class="color-main"> here </a>
+                            </p>
+                         </div>
+                            <div class="form-button mt-3 text-center">
+                                <button id="submit" type="submit" class="btn btn-dark linky-button">Create Account <i class="bi bi-arrow-right-circle-fill"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    
+{% endblock %}

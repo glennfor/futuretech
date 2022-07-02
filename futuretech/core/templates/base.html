@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet" />
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
+    <title>
+        {% block title %}
+        Welcome to FutureTech
+        {% endblock title %}
+    </title>
+</head>
+
+<body>
+    <header>
+        <!-- Topbar Start -->
+        <div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
+            <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="bi bi-geo-fill text-primary me-2"></small>
+                <small>Chappelle Obili, Yaounde.</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="bi bi-clock text-primary me-2"></small>
+                <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="bi bi-phone text-primary me-2"></small>
+                <small>(+237) 677 77 77 77</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white text-success me-1" href=""
+                    ><i class="bi bi-whatsapp"></i
+                ></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href=""
+                    ><i class="bi bi-facebook"></i
+                ></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href=""
+                    ><i class="bi bi-twitter"></i
+                ></a>
+                <a class="btn btn-sm-square bg-white text-info me-1" href=""
+                    ><i class="bi bi-linkedin"></i
+                ></a>
+                <a class="btn btn-sm-square bg-white text-danger me-0" href=""
+                    ><i class="bi bi-instagram"></i
+                ></a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Navbar Start -->
+        <nav
+        class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-32 px-4 px-lg-5 wow fadeIn"
+        data-wow-delay="0.1s"
+        >
+        <a href="/" class="navbar-brand p-0 logo">
+            <img class="img-fluid me-0" src="{% static 'img/logo.png' %}" alt="Icon" />
+            <h1 class="m-0 color-main d-inline">FutureTech</h1>
+        </a>
+        <button
+            type="button"
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse py-4 py-lg-0 bg-white m-0" id="navbarCollapse">
+            <div class="navbar-nav ms-auto ">
+            <a href="/home" class="nav-item nav-link active color-main">Home</a>
+            <a href="/about" /class="nav-item nav-link text-dark">About</a>
+            <a href="/contact" class="nav-item nav-link text-dark">Contact</a>
+            {% if user.is_authenticated %}
+                <span class="badge bg-success"> {{ user.username }} </span>
+            {% else %}
+            <span class="badge bg-danger"> Anonynmous </span>
+            {% endif %}
+            </div>
+            
+            {% if user.is_authenticated %}
+                <a href="/user/profile"
+                class="btn text-light bg-main mary fw-bold animate__animated animate__rubberBand animate__slower"
+                >View Your Profile<i class="bi bi-arrow-right ms-3 "></i
+                ></a>
+            {% else %}
+                <a href="/accounts/login"
+                class="btn text-light bg-main mary fw-bold animate__animated animate__rubberBand animate__slower"
+                >Sign In<i class="bi bi-arrow-right ms-3 "></i></a>
+            {% endif %}
+            
+        </div>
+        </nav>
+        <!-- Navbar End -->
+
+    </header>
+
+    <main>
+        {% block content %}
+
+        {% endblock content %}
+    </main>
+
+    <footer class="footer">
+        
+        <div class="footer-info">
+            <div class="org">
+                <a href="index.html" class="navbar-brand p-0 logo">
+                    <img class="img-fluid me-0" src="{% static 'img/logo.png' %}" alt="Icon" />
+                    <h1 class="m-0 color-main d-inline">FutureTech</h1>
+                  </a>
+                <p>
+                  Chappelle Obili <br>
+                  Yaounde.<br><br>
+                </p>
+            </div>
+
+            <div class="links">
+                <h4>Useful Links</h4>
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="#">About</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
+                  </ul>
+            </div>
+
+            <div class="contact">
+                <p>
+                  <strong>Phone:</strong> +1 5589 55488 55<br>
+                  <strong>Email:</strong> info@example.com<br>
+                </p>
+                <div class="social-links mt-3">
+                    <a href="#" class="btn btn-sm-square bg-white text-info me-1" ><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="btn btn-sm-square bg-white text-primary me-1"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="btn btn-sm-square bg-white text-info me-1"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="btn btn-sm-square bg-white text-success me-1"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" class="btn btn-sm-square bg-white text-info me-1"><i class="bi bi-linkedin"></i></a>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="footer-attrib">
+            <div class="copyright">
+                &copy; Copyright <strong><span>FutureTech</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="https://glenn-po.github.io"><strong><span>Glenn-po</span></strong></a>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="{% static 'lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</html>

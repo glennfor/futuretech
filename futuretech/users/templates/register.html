@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load  crispy_forms_tags%}
+{%block title %}
+ Welcome to FutureTech - Register
+{% endblock %}
+
+{% block content %}
+
+<div class="gen-form">
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="text-center">
+                        <img  src="{% static 'img/logo.png' %} " alt="logo" />
+                        <h3  class="text-center" >Register Today</h3>
+                        <p class="text-center" >Fill in the data below.</p>
+                        </div>
+                        <form class="requires-validation" method="POST" action="/user/profile" novalidate>
+                            {% csrf_token %}
+                            <div class="col-md-12">
+                               <input class="form-control" type="text" name="first_name" placeholder="First Name" required>
+                               <div class="valid-feedback">First name field is valid!</div>
+                               <div class="invalid-feedback">First name field cannot be blank!</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="middle_name" placeholder="Middle Name" >
+                                <div class="valid-feedback">Middle Name field is valid!</div>
+                                <div class="invalid-feedback">Middle Name field cannot be blank!</div>
+                             </div>
+
+                             <div class="col-md-12">
+                                <input class="form-control" type="text" name="last_name" placeholder="Last Name" required>
+                                <div class="valid-feedback">Last Name is field is valid!</div>
+                                <div class="invalid-feedback">Last Name is field cannot be blank!</div>
+                             </div>
+
+                             <div class="col-md-12">
+                                <label for="dob"> Date of birth </label>
+                                <input id="dob" class="form-control" type="date" name="birth_date" placeholder="Date of Birth" required>
+                                <div class="valid-feedback">Date of birth field is valid!</div>
+                                <div class="invalid-feedback">Date of birth field cannot be blank!</div>
+                             </div>
+
+                             <div class="col-md-12 mt-3">
+                                <label class="mb-3 mr-1" for="gender">Gender: </label>
+    
+                                <input type="radio" class="btn-check" name="gender" id="male" autocomplete="off" required>
+                                <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
+    
+                                <input type="radio" class="btn-check" name="gender" id="female" autocomplete="off" required>
+                                <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
+    
+                                <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>
+                                <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>
+                                   <div class="valid-feedback mv-up">You selected a gender!</div>
+                                    <div class="invalid-feedback mv-up">Please select a gender!</div>
+                            </div>
+
+
+                            <div class="col-md-12 mb-3">
+                                <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
+                                 <div class="valid-feedback">Email field is valid!</div>
+                                 <div class="invalid-feedback">Email field cannot be blank!</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="phone_number"> Phone Number </label>
+                                <input class="form-control" type="tel" name="phone_number" id="phone_number" pattern="((\+|00)?[1-9]{3}|0)[1-9]( ?[0-9]){8}" placeholder="+237687908978" required>
+                                <div class="valid-feedback">Phone Number field is valid!</div>
+                                <div class="invalid-feedback">Phone Number field cannot be blank!</div>
+                             </div> 
+
+                           <div class="col-md-12">
+                                <select class="form-select mt-3" name="course" required>
+                                      <option selected disabled value="">Course</option>
+                                      <option value="G">Game Development</option>
+                                      <option value="WD">Web Development</option>
+                                      <option value="MAD">Mobile App development</option>
+                                      <option value="R">Robotics</option>
+                                      <option value="GD">Graphics Design</option>
+                                      <option value="CM">Computer Maintenance</option>
+                               </select>
+                                <div class="valid-feedback">You selected a course!</div>
+                                <div class="invalid-feedback">Please select a course!</div>
+                           </div>
+
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                          <label class="form-check-label">I confirm that all data are correct</label>
+                         <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                        </div>
+                  
+
+                            <div class="form-button mt-3 text-center">
+                                <button id="submit" type="submit" class="btn btn-dark linky-button">Register <i class="bi bi-layers-fill"> </i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    
+{% endblock %}

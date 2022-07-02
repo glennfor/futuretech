@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %}
+ Welcome to FutureTech - Register
+{% endblock %}
+
+{% block content %}
+
+<div class="gen-form">
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="text-center">
+                            <img  src="{% static 'img/logo.png' %} " alt="logo" />
+                            <h3  class="text-center" >Log into your account</h3>
+                            <p class="text-center" >Fill in the data below.</p>
+                            </div>
+                        <form class="requires-validation" method="POST" novalidate>
+                            {% csrf_token %}
+                           <div class="col-md-12">
+                            <input class="form-control" type="text" name="username" placeholder="Username" required>
+                         </div> 
+
+                           <div class="col-md-12 mb-3">
+                              <input class="form-control" type="password" name="password" placeholder="Password" required>
+                           </div>
+                           {% if error %}
+                           <div class="text-danger text-sm mb-2"> {{ error }} </div>
+                           {% endif %}
+                           <div class="col-md-12 mb-3">
+                               <p class="text-center">
+                                Don't have an account? Create one <a href="/accounts/signup" class="color-main"> here </a>
+                               </p>
+                            </div>
+                            <div class="form-button mt-3 text-center">
+                                <button id="submit" type="submit" class="btn btn-dark linky-button"> Login <i class="bi bi-arrow-right-circle-fill"> </i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+{% endblock %}
